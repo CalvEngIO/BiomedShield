@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/peytonpuckett/Documents/CalvEng/ArduinoBiomed/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="/Users/peytonpuckett/Documents/CalvEng/ArduinoBiomed/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_4b795a326f1847df4245e36e5ac06ebc315e8946/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/peytonpuckett/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="/Users/peytonpuckett/Documents/CalvEng/ArduinoBiomed/app/build/intermediates/transforms/dex/debug/folders/1000/10/constraint-layout-solver-1.0.2_216479f7980e9bc3028d45283f69eb4c028a50b8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/peytonpuckett/Documents/CalvEng/ArduinoBiomed/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="767306d9158c3e7426eae4ddeaa9c83676f9843d">
+        <dex dex="/Users/peytonpuckett/Documents/CalvEng/ArduinoBiomed/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_866e1dc9463c0675968ad285c5e16859732f7f2a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/peytonpuckett/.android/build-cache/34230975a30a83413795ba8e89adb7916c795cfa/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="/Users/peytonpuckett/Documents/CalvEng/ArduinoBiomed/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_214735d4d9abc1acecb5ff27492419dc84d06d9b/classes.dex" />
+    </item>
+
+</items>
