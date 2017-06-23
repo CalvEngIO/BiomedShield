@@ -79,6 +79,13 @@ public:
      **ambient light sensor
      **UV sensor --
      
+	 Arduino-capable: https://www.digikey.com/product-detail/en/vishay-semiconductor-opto-division/VEML6070/VEML6070CT-ND/5171286 - $2.77
+	        (UV sensor but no light sensor)
+	 UV and Light Sensor: http://www.mouser.com/ProductDetail/Silicon-Labs/SI1132-A10-GMR/?qs=sGAEpiMZZMsB9HsreUc%252bifOGjEN2inPtTn4xL1ddrZ8%3d - $2.14
+	 UV and Light sensor: http://www.mouser.com/ProductDetail/Broadcom-Limited/APDS-9200/?qs=%2fha2pyFaduhqU9Kf5MdtHTZHc8m6Q4v1JYaTc%252bdOVH2H4RPVKOftMA%3d%3d - $ 1.90
+	 
+	 If you get the arduino-capable sensor, there are a million light sensor chips for $1 or less
+	 
      pulse sensor  - Arduino pulse sensor circuit - $2.00 (copy and paste from pulseFit BOM)
      respiration sensor - arduino pulse sensor circuit - $1
      
