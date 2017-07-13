@@ -82,45 +82,43 @@
 /*=========================================================================
     REGISTERS
     -----------------------------------------------------------------------*/
-    enum
-    {
-	  ADPS9200_REGISTER_MAIN_CTRL			= 0x00,	//(RW)
-	  ADPS9200_REGISTER_LS_MEAS_RATE		= 0x04,	//(RW)
-	  ADPS9200_REGISTER_LS_GAIN				= 0x05,	//(RW)
-	  ADPS9200_REGISTER_PART_ID				= 0x06,	//(R )
-	  ADPS9200_REGISTER_MAIN_STATUS			= 0x07,	//(R )
-	  ADPS9200_REGISTER_ALS_DATA_0			= 0x0D,	//(R )
-	  ADPS9200_REGISTER_ALS_DATA_1			= 0x0E,	//(R )
-	  ADPS9200_REGISTER_ALS_DATA_2			= 0x0F,	//(R )
-	  ADPS9200_REGISTER_UVS_DATA_0			= 0x10,	//(R )
-	  ADPS9200_REGISTER_UVS_DATA_1			= 0x11,	//(R )
-	  ADPS9200_REGISTER_UVS_DATA_2			= 0x12,	//(R )
-	  ADPS9200_REGISTER_UVS_COMP_DATA_0		= 0x13,	//(R )
-	  ADPS9200_REGISTER_UVS_COMP_DATA_1		= 0x14,	//(R )
-	  ADPS9200_REGISTER_UVS_COMP_DATA_2		= 0x15,	//(R )
-	  ADPS9200_REGISTER_COMP_DATA_0			= 0x16,	//(R )
-	  ADPS9200_REGISTER_COMP_DATA_1			= 0x17,	//(R )
-	  ADPS9200_REGISTER_COMP_DATA_2			= 0x18,	//(R )
-	  ADPS9200_REGISTER_INT_CFG				= 0x19,	//(RW)
-	  ADPS9200_REGISTER_INT_PERSISTNECE		= 0x1A,	//(RW)
-	  ADPS9200_REGISTER_LS_THRES_UP_0		= 0x21,	//(RW)
-	  ADPS9200_REGISTER_LS_THRES_UP_1		= 0x22,	//(RW)
-	  ADPS9200_REGISTER_LS_THRES_UP_2		= 0x23,	//(RW)
-	  ADPS9200_REGISTER_LS_THRES_LOW_0		= 0x24,	//(RW)
-	  ADPS9200_REGISTER_LS_THRES_LOW_1		= 0x25,	//(RW)
-	  ADPS9200_REGISTER_LS_THRES_LOW_2		= 0x26,	//(RW)
-	  ADPS9200_REGISTER_LS_THRES_VAR		= 0x27,	//(RW)
-    };
-
+    
+	uint8_t ADPS9200_REGISTER_MAIN_CTRL				= 0x00,	//(RW)
+	uint8_t ADPS9200_REGISTER_LS_MEAS_RATE			= 0x04,	//(RW)
+	uint8_t ADPS9200_REGISTER_LS_GAIN				= 0x05,	//(RW)
+	uint8_t ADPS9200_REGISTER_PART_ID				= 0x06,	//(R )
+	uint8_t ADPS9200_REGISTER_MAIN_STATUS			= 0x07,	//(R )
+	uint8_t ADPS9200_REGISTER_ALS_DATA_0			= 0x0D,	//(R )
+	uint8_t ADPS9200_REGISTER_ALS_DATA_1			= 0x0E,	//(R )
+	uint8_t ADPS9200_REGISTER_ALS_DATA_2			= 0x0F,	//(R )
+	uint8_t ADPS9200_REGISTER_UVS_DATA_0			= 0x10,	//(R )
+	uint8_t ADPS9200_REGISTER_UVS_DATA_1			= 0x11,	//(R )
+	uint8_t ADPS9200_REGISTER_UVS_DATA_2			= 0x12,	//(R )
+	uint8_t ADPS9200_REGISTER_UVS_COMP_DATA_0		= 0x13,	//(R )
+	uint8_t ADPS9200_REGISTER_UVS_COMP_DATA_1		= 0x14,	//(R )
+	uint8_t ADPS9200_REGISTER_UVS_COMP_DATA_2		= 0x15,	//(R )
+	uint8_t ADPS9200_REGISTER_COMP_DATA_0			= 0x16,	//(R )
+	uint8_t ADPS9200_REGISTER_COMP_DATA_1			= 0x17,	//(R )
+	uint8_t ADPS9200_REGISTER_COMP_DATA_2			= 0x18,	//(R )
+	uint8_t ADPS9200_REGISTER_INT_CFG				= 0x19,	//(RW)
+	uint8_t ADPS9200_REGISTER_INT_PERSISTNECE		= 0x1A,	//(RW)
+	uint8_t ADPS9200_REGISTER_LS_THRES_UP_0			= 0x21,	//(RW)
+	uint8_t ADPS9200_REGISTER_LS_THRES_UP_1			= 0x22,	//(RW)
+	uint8_t ADPS9200_REGISTER_LS_THRES_UP_2			= 0x23,	//(RW)
+	uint8_t ADPS9200_REGISTER_LS_THRES_LOW_0		= 0x24,	//(RW)
+	uint8_t ADPS9200_REGISTER_LS_THRES_LOW_1		= 0x25,	//(RW)
+	uint8_t ADPS9200_REGISTER_LS_THRES_LOW_2		= 0x26,	//(RW)
+	uint8_t ADPS9200_REGISTER_LS_THRES_VAR			= 0x27,	//(RW)
+	  
 /*=========================================================================*/
  
- class LIGHT
+ class ADPS9200
  {
 	 private:
 	 
 		int interruptPin;
 	 
-		int read3bit();
+		long read3bit();
 	 
 	 public:
 	 
@@ -140,29 +138,36 @@
 		// a function take an input number of readings all in a row.
 		// (not sure how to return that data in a clean format)
 		
-		int readLight();
-		int readUV();
+		long readLight();
+		long readUV();
+		void standby();
 		
-		int readLightUnfiltered();
-		int readUVUnfiltered();
+		long readLightUnfiltered();
+		long readUVUnfiltered();
+		
+		boolean setInterruptPersistence(int numReadings);
 		
 		// Threshold Interrupt
-		void setUVInterrupt();
-		void enableUVInterrupt();
-		void disableUVInterrupt();
-		
-		void setLightInterrupt();
+		void setLightInterrupt(int upper, int lower);
+		void setLightInterruptUpper(int upper);
+		void setLightInterruptLower(int lower);
 		void enableLightInterrupt();
 		void disableLightInterrupt();
 		
-		// Variance Interrupt
-		void setUVInterruptVar();
-		void enableUVInterruptVar();
-		void disableUVInterruptVar();
+		void setUVInterrupt(int upper, int lower);
+		void setUVInterruptUpper(int upper);
+		void setUVInterruptLower(int lower);
+		void enableUVInterrupt();
+		void disableUVInterrupt();
 		
-		void setLightInterruptVar();
+		// Variance Interrupt
+		void setLightInterruptVar(int var);
 		void enableLightInterruptVar();
 		void disableLightInterruptVar();
+		
+		void setUVInterruptVar(int var);
+		void enableUVInterruptVar();
+		void disableUVInterruptVar();
 		
 		// Higher Level Functions
 		int getUVIndex();
