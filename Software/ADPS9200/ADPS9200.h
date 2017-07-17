@@ -1,10 +1,10 @@
-/* GENERAL NOTES ON ADPS-9200 (sorry, I know this is really messy right now)
+/* GENERAL NOTES ON APDS-9200 (sorry, I know this is really messy right now)
  * 
  * Address = 0x52  (7 bit addresss protocol)
  * 
- * The UV light sensor has to be operated independently from Ambient Light Sensor. To enable the reading of UV sensor, UVS_MODE
+ * The UV light sensor has to be operated independently from Ambient Light Sensor. To enable the geting of UV sensor, UVS_MODE
  * and LS_EN bit has to be correctly set in the MAIN_CTRL register. Setting the UVS_MODE bit will stop a running ALS measurement
- * and start a new UV sensor reading.
+ * and start a new UV sensor geting.
  * 
  * 3.3V Supply
  * 
@@ -22,8 +22,8 @@
  * either threshold triggered (LS_VAR_MODE = 0) or variance
  * trigged (LS_VAR_MODE = 1)
  * 
- * You have to use block read proocols
- *     This assures you don't read values from different conversions
+ * You have to use block get proocols
+ *     This assures you don't get values from different conversions
  *
  */
  
@@ -40,10 +40,10 @@
  *
  *
  * DESCRIPTION
- * This header file provides function declarations for controlling the ADPS-9200
+ * This header file provides function declarations for controlling the APDS-9200
  * chip which acts as a UV and ambient light sensor.
  * This is a very basic code that allows the user to declare a Light Sensor object
- * and programmatically read UV and ambient light readings along with adjusting 
+ * and programmatically get UV and ambient light getings along with adjusting 
  * settings of the chip. This library utilizes high level Arduino functions.
  *
  * 
@@ -118,34 +118,34 @@
 	 
 		int interruptPin;
 	 
-		long read3bit();
+		long get3bit();
 	 
 	 public:
 	 
 		Light();
 		Light(int intrpPin);
 		
-		// I currently just manually set the mode each time a reading
+		// I currently just manually set the mode each time a geting
 		// is requested.  Not necessarily the most efficient way, but
 		// I thought it would be the most straightforward way for the
 		// user.  You could have the user manually switch the UV or
 		// Ambient light modes as well, depends on what you want.
 		
-		// Afterthought, we could have different read functions for
+		// Afterthought, we could have different get functions for
 		// both of the above methods and let the user choose.  This
-		// would allow them to take multple RAPID readings over a 
+		// would allow them to take multple RAPID getings over a 
 		// period of time.  I currently cannot think of a way to have
-		// a function take an input number of readings all in a row.
+		// a function take an input number of getings all in a row.
 		// (not sure how to return that data in a clean format)
 		
-		long readLight();
-		long readUV();
+		long getLight();
+		long getUV();
 		void standby();
 		
-		long readLightUnfiltered();
-		long readUVUnfiltered();
+		long getLightUnfiltered();
+		long getUVUnfiltered();
 		
-		boolean setInterruptPersistence(int numReadings);
+		bool setInterruptPersistence(int numgetings);
 		
 		// Threshold Interrupt
 		void setLightInterrupt(int upper, int lower);
