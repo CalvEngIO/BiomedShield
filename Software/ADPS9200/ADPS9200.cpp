@@ -11,7 +11,7 @@
  *
  *
  * DESCRIPTION
- * This source file provides function definitions for controlling the ADPS-9200.
+ * This source file provides function definitions for controlling the APDS-9200.
  * This is a very basic code that allows the user to declare a Light Sensor object
  * and programmatically read UV and ambient light readings along with adjusting 
  * settings of the chip. This library utilizes high level Arduino functions.
@@ -66,7 +66,7 @@
  
  //long readLight()
  //Reads a single ambint light measurement raw value (filtered by chip logic)
- long ADPS9200::readLight()
+ long ADPS9200::getLight()
  {
 	// Enable and set chip to read Ambient Light
 	 Wire.beginTransmission(ADPS9200_ADDRESS);
@@ -100,7 +100,7 @@
  
  //long readLight()
  //Reads a single UV light measurement raw value (filtered by chip logic)
- long ADPS9200::readUV()
+ long ADPS9200::getUV()
  {
 	// Enable and set chip to read UV Light
 	 Wire.beginTransmission(ADPS9200_ADDRESS);
@@ -131,7 +131,7 @@
  //Reads a single ambint light measurement unfiltered raw value
  //The filtered value and offset are red, then the offset is added
  //back into the read value.
- long ADPS9200::readLightUnfiltered()
+ long ADPS9200::getLightUnfiltered()
  {
 	// Enable and set chip to read Ambient Light
 	 Wire.beginTransmission(ADPS9200_ADDRESS);
@@ -173,7 +173,7 @@
  //Reads a single UV light measurement unfiltered raw value
  //The filtered value and offset are red, then the offset is added
  //back into the read value.
- long ADPS9200::readUVUnfiltered()
+ long ADPS9200::getUVUnfiltered()
  {
 	// Enable and set chip to read UV Light
 	 Wire.beginTransmission(ADPS9200_ADDRESS);
@@ -590,7 +590,7 @@
 	 // from inside the class itself.  I found this syntax online but I'm not
 	 // sure if it's completely right.
 	 
-	 int UV = this->readUV();
+	 long UV = this->readUV();
 	 
 	 // FIXME still need to find conversion for the index relationship
  }
