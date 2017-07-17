@@ -55,14 +55,84 @@ public:
 	BiomedShield();
     
     
-    int getPulse();
-    int getRespiration();
-    int getEXG();
+    int getPulse();  // How long does it read for? Make this an option to improve accuracy?
+    int getRespiration(); // ^^
+    int getEXG();  // ^^
     
     calcHR();
     
     double getHumidity();
+	double getBodyTemp();
+	
+	// Bioimpedance Functions??
+	// Chemical Sensing Functions??
+	// Can't find MAX-30 chip
+	
+	
+	// I'm assuming we don't include ardino101 functions in this header file:
+	/*		accelerometer
+			gyro
+			
+			contact sensor
+			
+			touch sensor
+			
+			capacitive touch
+			
+			BLE
+	*/
+	
+	//----------------------------------
+	// ADPS-9200
+	//----------------------------------
+	
+	long getLight();
+	long getUV();
+	void standby();
+	
+	long getLightUnfiltered();
+	long getUVUnfiltered();
+	
+	bool setInterruptPersistence(int numgetings);
+	
+	// Threshold Interrupt
+	void setLightInterrupt(int upper, int lower);
+	void setLightInterruptUpper(int upper);
+	void setLightInterruptLower(int lower);
+	void enableLightInterrupt();
+	void disableLightInterrupt();
+	
+	void setUVInterrupt(int upper, int lower);
+	void setUVInterruptUpper(int upper);
+	void setUVInterruptLower(int lower);
+	void enableUVInterrupt();
+	void disableUVInterrupt();
+	
+	// Variance Interrupt
+	void setLightInterruptVar(int var);
+	void enableLightInterruptVar();
+	void disableLightInterruptVar();
+	
+	void setUVInterruptVar(int var);
+	void enableUVInterruptVar();
+	void disableUVInterruptVar();
+	
+	// Higher Level Functions
+	int getUVIndex();
+	
+	
+	//-----------------------------------
+	// BMP-280
+	//-----------------------------------
+	
+	Adafruit_BMP280();
+    Adafruit_BMP280(int8_t cspin);
+    Adafruit_BMP280(int8_t cspin, int8_t mosipin, int8_t misopin, int8_t sckpin);
 
+    bool  begin(uint8_t addr = BMP280_ADDRESS, uint8_t chipid = BMP280_CHIPID);
+    float getTemp(void);
+    float getPressure(void);
+    float getAltitude(float seaLevelhPa = 1013.25);
     
     
     
@@ -71,21 +141,14 @@ public:
      pseudocode
      
      
-     **(ambient) temperature sensor
+     **(ambient) temperature sensor - BMP280
      **humidity sensor - SHT30-ARP-B - $2.50
-     **human body temperature - $2 - MAX30
+     **human body temperature - $2 - MAX30 ?????????
      **barometric pressure - BMP280 - $2.50
      
      **ambient light sensor
      **UV sensor --
      
-	 Arduino-capable: https://www.digikey.com/product-detail/en/vishay-semiconductor-opto-division/VEML6070/VEML6070CT-ND/5171286 - $2.77
-	        (UV sensor but no light sensor)
-	 UV and Light Sensor: http://www.mouser.com/ProductDetail/Silicon-Labs/SI1132-A10-GMR/?qs=sGAEpiMZZMsB9HsreUc%252bifOGjEN2inPtTn4xL1ddrZ8%3d - $2.14
-	 UV and Light sensor: http://www.mouser.com/ProductDetail/Broadcom-Limited/APDS-9200/?qs=%2fha2pyFaduhqU9Kf5MdtHTZHc8m6Q4v1JYaTc%252bdOVH2H4RPVKOftMA%3d%3d - $ 1.90
-	 
-	 If you get the arduino-capable sensor, there are a million light sensor chips for $1 or less
-	 
      pulse sensor  - Arduino pulse sensor circuit - $2.00 (copy and paste from pulseFit BOM)
      respiration sensor - arduino pulse sensor circuit - $1
      
@@ -118,13 +181,8 @@ public:
      simplicity of the library
      analog output voltage that doenst need to be conditioned over digital output
      
-     
-     
      */
     
-    
-    
-
 };
 
 
