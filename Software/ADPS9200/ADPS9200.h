@@ -28,7 +28,7 @@
  */
  
  /*
- * FILENAME:	ADPS9200.h
+ * FILENAME:	APDS-9200.h
  * AUTHOR:	Trevor D. Meyer
  * EMAIL:	mail2trevorm@gmail.com
  * VERSION:	0.0
@@ -62,8 +62,8 @@
  * contact me.
  */
  
- #ifndef ADPS9200_H
- #define ADPS9200_H
+ #ifndef APDS-9200_H
+ #define APDS-9200_H
  
  // These were copied from somewhere else and slightly altered.  Not sure if needed.
  #if (ARDUINO >= 100)
@@ -77,42 +77,42 @@
  /*=========================================================================
     I2C ADDRESS/BITS/SETTINGS
     -----------------------------------------------------------------------*/
-    #define ADPS9200_ADDRESS                (0x52)
+    #define APDS-9200_ADDRESS                (0x52)
 
 /*=========================================================================
     REGISTERS
     -----------------------------------------------------------------------*/
     
-	uint8_t ADPS9200_REGISTER_MAIN_CTRL				= 0x00,	//(RW)
-	uint8_t ADPS9200_REGISTER_LS_MEAS_RATE			= 0x04,	//(RW)
-	uint8_t ADPS9200_REGISTER_LS_GAIN				= 0x05,	//(RW)
-	uint8_t ADPS9200_REGISTER_PART_ID				= 0x06,	//(R )
-	uint8_t ADPS9200_REGISTER_MAIN_STATUS			= 0x07,	//(R )
-	uint8_t ADPS9200_REGISTER_ALS_DATA_0			= 0x0D,	//(R )
-	uint8_t ADPS9200_REGISTER_ALS_DATA_1			= 0x0E,	//(R )
-	uint8_t ADPS9200_REGISTER_ALS_DATA_2			= 0x0F,	//(R )
-	uint8_t ADPS9200_REGISTER_UVS_DATA_0			= 0x10,	//(R )
-	uint8_t ADPS9200_REGISTER_UVS_DATA_1			= 0x11,	//(R )
-	uint8_t ADPS9200_REGISTER_UVS_DATA_2			= 0x12,	//(R )
-	uint8_t ADPS9200_REGISTER_UVS_COMP_DATA_0		= 0x13,	//(R )
-	uint8_t ADPS9200_REGISTER_UVS_COMP_DATA_1		= 0x14,	//(R )
-	uint8_t ADPS9200_REGISTER_UVS_COMP_DATA_2		= 0x15,	//(R )
-	uint8_t ADPS9200_REGISTER_COMP_DATA_0			= 0x16,	//(R )
-	uint8_t ADPS9200_REGISTER_COMP_DATA_1			= 0x17,	//(R )
-	uint8_t ADPS9200_REGISTER_COMP_DATA_2			= 0x18,	//(R )
-	uint8_t ADPS9200_REGISTER_INT_CFG				= 0x19,	//(RW)
-	uint8_t ADPS9200_REGISTER_INT_PERSISTNECE		= 0x1A,	//(RW)
-	uint8_t ADPS9200_REGISTER_LS_THRES_UP_0			= 0x21,	//(RW)
-	uint8_t ADPS9200_REGISTER_LS_THRES_UP_1			= 0x22,	//(RW)
-	uint8_t ADPS9200_REGISTER_LS_THRES_UP_2			= 0x23,	//(RW)
-	uint8_t ADPS9200_REGISTER_LS_THRES_LOW_0		= 0x24,	//(RW)
-	uint8_t ADPS9200_REGISTER_LS_THRES_LOW_1		= 0x25,	//(RW)
-	uint8_t ADPS9200_REGISTER_LS_THRES_LOW_2		= 0x26,	//(RW)
-	uint8_t ADPS9200_REGISTER_LS_THRES_VAR			= 0x27,	//(RW)
+	uint8_t APDS-9200_REGISTER_MAIN_CTRL				= 0x00,	//(RW)
+	uint8_t APDS-9200_REGISTER_LS_MEAS_RATE			= 0x04,	//(RW)
+	uint8_t APDS-9200_REGISTER_LS_GAIN				= 0x05,	//(RW)
+	uint8_t APDS-9200_REGISTER_PART_ID				= 0x06,	//(R )
+	uint8_t APDS-9200_REGISTER_MAIN_STATUS			= 0x07,	//(R )
+	uint8_t APDS-9200_REGISTER_ALS_DATA_0			= 0x0D,	//(R )
+	uint8_t APDS-9200_REGISTER_ALS_DATA_1			= 0x0E,	//(R )
+	uint8_t APDS-9200_REGISTER_ALS_DATA_2			= 0x0F,	//(R )
+	uint8_t APDS-9200_REGISTER_UVS_DATA_0			= 0x10,	//(R )
+	uint8_t APDS-9200_REGISTER_UVS_DATA_1			= 0x11,	//(R )
+	uint8_t APDS-9200_REGISTER_UVS_DATA_2			= 0x12,	//(R )
+	uint8_t APDS-9200_REGISTER_UVS_COMP_DATA_0		= 0x13,	//(R )
+	uint8_t APDS-9200_REGISTER_UVS_COMP_DATA_1		= 0x14,	//(R )
+	uint8_t APDS-9200_REGISTER_UVS_COMP_DATA_2		= 0x15,	//(R )
+	uint8_t APDS-9200_REGISTER_COMP_DATA_0			= 0x16,	//(R )
+	uint8_t APDS-9200_REGISTER_COMP_DATA_1			= 0x17,	//(R )
+	uint8_t APDS-9200_REGISTER_COMP_DATA_2			= 0x18,	//(R )
+	uint8_t APDS-9200_REGISTER_INT_CFG				= 0x19,	//(RW)
+	uint8_t APDS-9200_REGISTER_INT_PERSISTNECE		= 0x1A,	//(RW)
+	uint8_t APDS-9200_REGISTER_LS_THRES_UP_0			= 0x21,	//(RW)
+	uint8_t APDS-9200_REGISTER_LS_THRES_UP_1			= 0x22,	//(RW)
+	uint8_t APDS-9200_REGISTER_LS_THRES_UP_2			= 0x23,	//(RW)
+	uint8_t APDS-9200_REGISTER_LS_THRES_LOW_0		= 0x24,	//(RW)
+	uint8_t APDS-9200_REGISTER_LS_THRES_LOW_1		= 0x25,	//(RW)
+	uint8_t APDS-9200_REGISTER_LS_THRES_LOW_2		= 0x26,	//(RW)
+	uint8_t APDS-9200_REGISTER_LS_THRES_VAR			= 0x27,	//(RW)
 	  
 /*=========================================================================*/
  
- class ADPS9200
+ class APDS-9200
  {
 	 private:
 	 
